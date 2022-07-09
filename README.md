@@ -13,7 +13,7 @@ This is a starter template for building Deno packages in TypeScript, with GitHub
 ## 🔑 Start the motor
 
 ```ts
-// Example here
+import { motor } from "https://deno.land/x/motor@0.0/mod.ts";
 ```
 
 ### CLI with [DPX](https://github.com/denorg/dpx)
