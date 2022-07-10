@@ -3,11 +3,7 @@
     [
       "semantic-release-gitmoji",
       {
-        "releaseRules": {
-          "patch": {
-            "include": [":bento:", ":recycle:"]
-          }
-        }
+        "releaseRules": { "patch": { "include": [":bento:", ":recycle:"] } }
       }
     ],
     "@semantic-release/github",
