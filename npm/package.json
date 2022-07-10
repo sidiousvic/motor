@@ -1,0 +1,30 @@
+{
+  "module": "./esm/mod.js",
+  "main": "./script/mod.js",
+  "types": "./types/mod.d.ts",
+  "name": "motor",
+  "description": "⚙️ A no-frills FSM module.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sidiousvic/motor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sidious/motor/issues"
+  },
+  "exports": {
+    ".": {
+      "import": "./esm/mod.js",
+      "require": "./script/mod.js",
+      "types": "./types/mod.d.ts"
+    }
+  },
+  "scripts": {
+    "test": "node test_runner.js"
+  },
+  "devDependencies": {
+    "@types/node": "16.11.37",
+    "chalk": "4.1.2",
+    "@deno/shim-deno": "~0.7.0"
+  }
+}

@@ -1,4 +1,4 @@
-import { MotorSpec } from "./index.d.ts";
+import { MotorSpec } from "./index_2";
 
 export const motor = <E extends string, G extends string>(
   machine: MotorSpec<G, E>

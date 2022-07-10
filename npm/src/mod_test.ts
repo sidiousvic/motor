@@ -1,5 +1,6 @@
-import { assertEquals, assert } from "https://deno.land/std/testing/asserts.ts";
-import { motor, MotorSpec } from "./mod.ts";
+import * as dntShim from "./_dnt.test_shims.js";
+import { assertEquals, assert } from "./deps/deno.land/std@0.147.0/testing/asserts.js";
+import { motor, MotorSpec } from "./mod.js";
 
 type Gears = "stopped" | "paused" | "playing" | "loading";
 
@@ -23,7 +24,7 @@ const musicPlayerMotor: MotorSpec<Gears, Events> = {
   },
 };
 
-Deno.test("Transitions correctly between states", () => {
+dntShim.Deno.test("Transitions correctly between states", () => {
   const { fire, gear } = motor(musicPlayerMotor);
   assertEquals(gear(), "stopped");
 
@@ -40,7 +41,7 @@ Deno.test("Transitions correctly between states", () => {
   assertEquals(gear(), "stopped");
 });
 
-Deno.test("Calls hooked functions to changes in gear", () => {
+dntShim.Deno.test("Calls hooked functions to changes in gear", () => {
   const counter =
     (count = 0) =>
     () =>
