@@ -1,0 +1,36 @@
+{
+  "module": "./esm/mod.js",
+  "main": "./script/mod.js",
+  "types": "./types/mod.d.ts",
+  "name": "@sidiousware/motor",
+  "description": "A no-frills finite state machine module.",
+  "license": "MIT",
+  "scripts": {
+    "test": "node test_runner.js",
+    "semantic-release": "semantic-release --branches prod"
+  },
+  "release": {
+    "branches": [
+      "prod"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sidiousvic/motor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sidiousvic/motor/issues"
+  },
+  "exports": {
+    ".": {
+      "import": "./esm/mod.js",
+      "require": "./script/mod.js",
+      "types": "./types/mod.d.ts"
+    }
+  },
+  "devDependencies": {
+    "@types/node": "16.11.37",
+    "chalk": "4.1.2",
+    "@deno/shim-deno": "~0.7.0"
+  }
+}

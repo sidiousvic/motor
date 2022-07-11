@@ -33,13 +33,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: 12.17.0
-      - name: Setup package.json
-        run: echo '{"main":"mod.ts","name":"@sidiousware/motor","version":"0.0.0","publishConfig":{"access":"public"},"scripts":{"semantic-release":"semantic-release --branches prod"},"repository":{"type":"git","url":"https://github.com/sidiousvic/motor.git"},"author":"sidiousvic","license":"MIT","bugs":{"url":"https://github.com/sidiousvic/motor/issues"},"homepage":"https://github.com/sidiousvic/motor","devDependencies":{"semantic-release":"^17.0.4"},"release":{"branches":["prod"]}}' > package.json
+          node-version: 14.17.0
       - name: Install dependencies
-        run: npm install
+        run: cd npm && npm install
       - name: Release
-        run: npx semantic-release
+        run: cd npm && npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
