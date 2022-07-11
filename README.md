@@ -5,7 +5,7 @@
 <br/>
 
 [![Deno CI](https://github.com/sidiousvic/motor/workflows/Deno%20CI/badge.svg)](https://github.com/sidiousvic/motor/actions)
-[![GitHub](https://img.shields.io/github/license/sidiousvic/motor)](https://github.com/sidiousvic/motor/blob/master/LICENSE)
+[![GitHub](https://img.shields.io/github/license/sidiousvic/motor)](https://github.com/sidiousvic/motor/blob/prod/LICENSE)
 [![Contributors](https://img.shields.io/github/contributors/sidiousvic/motor)](https://github.com/sidiousvic/motor/graphs/contributors)
 [![TypeScript](https://img.shields.io/badge/types-TypeScript-blue)](https://github.com/sidiousvic/motor)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)

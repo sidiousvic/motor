@@ -2,10 +2,10 @@ name: Test CI
 on:
   push:
     branches-ignore:
-      - "master"
+      - "prod"
   pull_request:
     branches-ignore:
-      - "master"
+      - "prod"
 jobs:
   build:
     name: ${{ matrix.kind }} ${{ matrix.os }}

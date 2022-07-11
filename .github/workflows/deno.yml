@@ -2,7 +2,7 @@ name: Deno CI
 on:
   push:
     branches:
-      - master
+      - prod
 jobs:
   build:
     name: ${{ matrix.kind }} ${{ matrix.os }}

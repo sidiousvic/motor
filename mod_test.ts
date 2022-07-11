@@ -1,4 +1,4 @@
-import { assertEquals, assert } from "https://deno.land/std/testing/asserts.ts";
+import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
 import { motor, MotorSpec } from "./mod.ts";
 
 type Gears = "stopped" | "paused" | "playing" | "loading";
