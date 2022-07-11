@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
     "paths": {},
-    "types": ["./motor/index.d.ts"]
+    "types": ["./src/index.d.ts"]
   }
 }
