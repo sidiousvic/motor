@@ -28,37 +28,42 @@ Deno.test("Transitions correctly between states", () => {
   assertEquals(gear(), "stopped");
 
   fire("LOAD");
+
   assertEquals(gear(), "loading");
 
   fire("PLAY");
+
   assertEquals(gear(), "playing");
 
   fire("PAUSE");
+
   assertEquals(gear(), "paused");
 
   fire("STOP");
+
   assertEquals(gear(), "stopped");
 });
 
 Deno.test("Calls hooked functions to changes in gear", () => {
-  const counter =
-    (count = 0) =>
-    () =>
-      (count += 1);
+  let counter = 0;
+
+  const count = () => (counter += 1);
 
   const { fire, gear, hook } = motor(musicPlayerMotor);
 
   assertEquals(gear(), "stopped");
 
-  const hooked = counter();
-  hook(counter());
+  hook(count);
 
   fire("LOAD");
-  assertEquals(hooked(), 1);
+
+  assertEquals(counter, 1);
 
   fire("PLAY");
-  assertEquals(hooked(), 2);
+
+  assertEquals(counter, 2);
 
   fire("STOP");
-  assertEquals(hooked(), 3);
+
+  assertEquals(counter, 3);
 });
