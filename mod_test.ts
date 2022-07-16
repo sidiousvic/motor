@@ -1,9 +1,16 @@
 import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
 import { motor, MotorSpec } from "./mod.ts";
 
-type Gears = "stopped" | "paused" | "playing" | "loading";
+type Gears = "stopped" | "paused" | "playing" | "playing.skipping" | "loading";
 
-type Events = "SELECT" | "LOAD" | "PLAY" | "PAUSE" | "STOP";
+type Events =
+  | "SELECT"
+  | "LOAD"
+  | "PLAY"
+  | "PAUSE"
+  | "STOP"
+  | "SKIP_START"
+  | "SKIP_END";
 
 const musicPlayerMotor: MotorSpec<Gears, Events> = {
   gear: "stopped",
@@ -18,7 +25,10 @@ const musicPlayerMotor: MotorSpec<Gears, Events> = {
       on: { PLAY: "playing", STOP: "stopped" },
     },
     playing: {
-      on: { PAUSE: "paused", STOP: "stopped" },
+      on: { PAUSE: "paused", STOP: "stopped", SKIP_START: "playing.skipping" },
+    },
+    "playing.skipping": {
+      on: { SKIP_END: "playing" },
     },
   },
 };
@@ -66,4 +76,22 @@ Deno.test("Calls hooked functions to changes in gear", () => {
   fire("STOP");
 
   assertEquals(counter, 3);
+});
+
+Deno.test("Should support heirarchical state nodes", () => {
+  const { fire, gear, matches } = motor(musicPlayerMotor);
+
+  fire("LOAD");
+
+  assertEquals(gear(), "loading");
+
+  fire("PLAY");
+
+  assertEquals(gear(), "playing");
+
+  fire("SKIP_START");
+
+  assertEquals(matches("playing"), true);
+  assertEquals(matches("playing.skipping"), true);
+  assertEquals(matches("loading"), false);
 });

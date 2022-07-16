@@ -10,6 +10,7 @@ export const motor = <E extends string, G extends string>(
       transmission.push(e);
     },
     gear: () => _gear,
+    matches: (gear: G) => _gear.includes(gear),
     fire: (event: E) => {
       if (event) {
         const toGear = machine.transmission[_gear].on[event] ?? "";
